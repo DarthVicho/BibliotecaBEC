@@ -1,9 +1,16 @@
 /*Aspectos Generales*/
 *{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/*body*/
+body{
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
 }
 
 /*Header*/
@@ -20,11 +27,12 @@ header{
 .logo {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .logo-img {
-    width: 55px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     overflow: hidden;
     object-fit: cover;
@@ -40,17 +48,21 @@ header{
     font-weight: bold;
 }
 
-/*Section*/
+/*seccion*/
 section{
     /*fondo con imagen*/
-    background-image: url("../Imagenes/Gemini_Generated_Image_9ryr909ryr909ryr.png");
+    background-image: url("../Imagenes/fondo_interior.png"); 
     /*encuadra la imagen*/
-    background-size: contain;
-
-    
-    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     flex-direction: column;
     justify-content: center;
+    flex-grow: 1;
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 
 .title{
@@ -99,10 +111,17 @@ section{
     background: #a6281c;
 }
 
-.texto{
-    text-align: center;
-    font-size: bold;
-    color: white;
+/*Mostrar Contraseña*/
+.container{
+    display: flex;
+    align-items: center;
+    width: 320px;
+}
+
+.bx{
+    font-size: 30px;
+    transform: translateX(-40px);
+    cursor: pointer;
 }
 
 /*Footer*/

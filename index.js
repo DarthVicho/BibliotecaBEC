@@ -1,62 +1,58 @@
-// La función principal que maneja el inicio de sesión
+//Función principal que maneja el inicio de sesión
 function manejarInicioDeSesion() {
-    // Obtenemos los valores del correo electrónico y la contraseña
+    //Obtenemos los valores del correo y contraseña
     const correo = document.getElementById('correo').value.trim();
-    const contrasena = document.getElementById('contrasena').value.trim();
+    const contrasena = document.getElementById('pass').value.trim();
 
-  // Obtenemos el elemento donde mostraremos los mensajes
+    //Mostraremos los mensajes
     const mensajeElemento = document.getElementById('mensaje');
 
-  // Si algún campo está vacío, mostramos un error
+    //Si hay un campo esta vacio nos muestra un mensaje de error
     if (!correo || !contrasena) {
-    mensajeElemento.textContent = 'Por favor, completa todos los campos.';
+    mensajeElemento.textContent = 'Por favor complete todos los campos.';
     mensajeElemento.style.color = 'red';
     return;
     }
 
     //inicio de sesion
-    // Normalizamos el correo para la comparación
+    //Normalizamos los correos para comparar
     const correoNormalizado = correo.toLowerCase();
 
-    //verificamos segun el correo
-    //si termina con @gmail.com
+    //Verificamos segun el correo ingresado
+
+    //PARA LA SECCION DE USUARIOS
+    //Si termina con @gmail.com
     if (correoNormalizado.endsWith('@gmail.com')) {
-        //redirecciona a el html de usuarios
+        //Redirecciona a el html de usuarios
         window.location.href = 'usuarios.html';
     }
 
-    //si termina en @bibliotecarios.com
+    //Si termina con @hotmail.com
+    else if(correoNormalizado.endsWith('@hotmail.com')){
+        window.location.href = 'usuarios.html';
+    }
+
+    //PARA LA SECCION DE BIBLIOTECARIOS
+    //Si termina en @bibliotecarios.bec
     else if (correoNormalizado.endsWith('@bibliotecarios.bec')) {
-        //redirecciona a el html de bibliotecarios
+        //Redirecciona a el html de bibliotecarios
         window.location.href = 'bibliotecarios.html';
     }
 
-    //si termina en @administrativos.bec
+    //PARA LA SECCION DE ADMINISTRATIVOS
+    //Si termina en @administrativos.bec
     else if (correoNormalizado.endsWith('@administrativos.bec')) {
-        //redirecciona al html de administrativos
+        //Redirecciona al html de administrativos
         window.location.href = 'administrativos.html';
     }
 
-    // Si el correo no coincide con ningún tipo conocido
+    //Si el correo no coincide con ninguno de los tipos
     else {
         mensajeElemento.textContent = 'Correo o contraseña incorrectos.';
         mensajeElemento.style.color = 'red';
         }
 }
-
-//mostrar contraseña
-const contra = document.querySelector('#contrasena')
-const mostrar = document.querySelector('#mostrar')
-mostrar.addEventListener('click',()=>{
-    if (mostrar.checked){
-        contra.type = 'text';    
-    }else {
-        contra.type = 'password';
-    }
-})
-
-// Agregamos un "escuchador de eventos" al botón de inicio de sesión
-// para que se ejecute la función cuando se haga clic
+//Para ejecutar la función cuando se haga clic en ingresar
 document.addEventListener('DOMContentLoaded', () => {
     const botonInicioSesion = document.getElementById('iniciarSesionBtn');
     if (botonInicioSesion) {
@@ -66,3 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+//Mostrar y ocultar contraseña con el ojo
+const pass = document.getElementById('pass')
+    icon = document.querySelector('.bx')
+    
+icon.addEventListener('click', e => {
+    if (pass.type === 'password'){
+        pass.type = 'text'
+        icon.classList.remove('bx-show-alt');
+        icon.classList.add('bx-hide');
+    }else{
+        pass.type = 'password';
+        icon.classList.remove('bx-hide');
+        icon.classList.add('bx-show-alt');
+    }
+})

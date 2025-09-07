@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bec - Inicio</title>
-    <link rel="stylesheet" href="./CSS/index.css">
+    <title>Bec - Registro</title>
+    <link rel="stylesheet" href="./CSS/registro.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
 </head>
 
 <body>
     <!--Header-->
     <header class="logo">
         <div class="logo-img">
-            <img src="./Imagenes/assets_task_01k3vmth8ff1bamxpvkev8gq59_1756495775_img_1.webp" width="45px">
+            <img src="./Imagenes/logo.webp" width="65px">
         </div>
         <div class="logo-text">
             <h1>BEC</h1>
-            <p>Biblioteca Estacion Central</p>
+            <p>Biblioteca Estación Central</p>
         </div>
     </header>
     
-    <!--Seccion-->
+    <!--Sección-->
     <section>
         <div class="title">
             <h1>Creación de Cuenta</h1>
@@ -29,24 +30,34 @@
             <form action="" method="" class="formulario">
                 <h2>Datos</h2>
 
+                <!--Campo para ingresar nombre-->
                 <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" required>
                 
+                <!--Campo para ingresar rut-->
                 <label for="rut">RUT:</label>
-                <input type="text" id="" name="rut" required>
+                <input type="text" id="rut" name="rut" required>
 
+                <!--Campo para ingresar telefono-->
                 <label for="telefono">Telefono:</label>
-                <input type="tel" id="" name="telefono" required>
+                <input type="tel" id="telefono" name="telefono" required>
                 
+                <!--Campo para ingresar direccion-->
                 <label for="direccion">Dirección:</label>
-                <input type="text" id="" name="direccion" required>
+                <input type="text" id="direccion" name="direccion" required>
 
+                <!--Campo para ingresar correo-->
                 <label for="correo">Correo:</label>
-                <input type="email" id="" name="correo" required>
+                <input type="email" id="correo" name="correo" required>
 
-                <label for="clave">Contraseña:</label>
-                <input type="text" id="" name="clave" required>
+                <!--Campo para ingresar contraseña-->
+                <label for="clave">Contraseña:</label>    
+                <div class="container">
+                    <input type="password" id="pass" class="pass" name="clave" required>
+                    <i class='bx bx-show-alt'></i>
+                </div>
 
+                <!--boton para ingresar que te lleva a los uuarios-->
                 <button type="submit"> <a href="usuarios.html"> Ingresar </a></button>
             </form>
         </div>
@@ -54,9 +65,10 @@
 
     <!--footer-->
     <footer>
-        <p>creada por</p>
-        <p> &copy; derechos reservados</p>
+        <p>Creada por</p>
+        <p> &copy; Derechos Reservados</p>
         <p> 2025</p>
     </footer>
+    <script src="registro.js"></script>
 </body>
 </html>

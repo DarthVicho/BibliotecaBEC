@@ -3,54 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
+    <title>Bec - Usuario</title>
     <link rel="stylesheet" href="./CSS/usuarios.css">
+    <link rel="stylesheet" href="./CSS/catalogo.css">
 </head>
 <body>
-    <!--Header-->
+    <!--HEADER-->
     <header class="logo">
         <div class="logo-img">
-            <img src="./Imagenes/assets_task_01k3vmth8ff1bamxpvkev8gq59_1756495775_img_1.webp" width="45px">
+            <img src="./Imagenes/logo.webp" width="70px">
         </div>
         <div class="logo-text">
             <h1>BEC</h1>
-            <p>Biblioteca Estacion Central</p>
+            <p>Biblioteca Estación Central</p>
         </div>
     </header>
 
-    <!--main-->
+    <!--MAIN-->
     <main>
-
-        <!--barra lateral izquierda-->
+        <!--ASIDE/barra lateral izquierda-->
         <aside class="button">
-            <img src="">
-            <a href="index.html">Cerrar Sesión</a>
-            <br>
-            <a href="">Mis prestamos</a>
-            <br>
-            <a href=""> Consultar Catalogo</a>
-            <br>
-            <a href=""> Solicitar Prestamo</a>
-            <br>
-            <a href=""> Reservar Documento</a>
+            <!--Foto de perfil generica "no custom"-->
+            <div class="login-img">
+                <img src="./Imagenes/user-login.jpg" width="45px"> 
+            </div>
+            
+            <!--Apartado de "Mis Solicitudes"-->
+            <div>
+                <a href="#" class="sidebar-item" data-target="history">Mis Solicitudes</a>
+            </div>
+
+            <!--Apartado de  "Mis Atrasos"-->
+            <div>
+                <a href="#" class="sidebar-item" data-target="atrasos">Mis Atrasos</a>
+            </div>
+
+            <!--Apartado de "Consultar Catalogo"-->
+            <div>
+                <a href="#" class="sidebar-item" data-target="catalogo"> Consultar Catálogo</a>
+            </div>
+
+            <!--Apartado de "Reservar Documento"-->
+            <div>
+                <a href="#" class="sidebar-item" data-target="reservar"> Reservar Documento</a>
+            </div>
+
+            <!--Boton de cerrar sesion-->
+            <a href="#" id="cerrarSesionBtn">Cerrar Sesión</a>
         </aside>
 
-        <!--seccion principal-->
+        <!--SECTION/seccion principal-->
         <section>
-            <h2>Opciones</h2>
-            <a href=""> Consultar Catalogo</a>
-            <a href=""> Solicitar Prestamo</a>
-            <a href=""> Reservar Documento</a>
-        </section>
+            <div id="welcome-view" class="content-view">
+                <h1>Hola usuario bienvenido a la Biblioteca de Estación Central</h1>
+                <p>Opciones</p>
 
+                <!--Boton del catalogo-->
+                <div class="cuadro">
+                    <a href="#" class="content-link" data-target="catalogo"> Consultar Catálogo</a>
+                </div>
+
+                <!--boton de reserva-->
+                <div class="cuadro">
+                    <a href="#" class="content-link" data-target="reservar"> Reservar Documento</a>
+                </div>
+            </div>
+
+            <!--CATALOGO-->
+            <div id="catalogo-view" class="content-view" style="display: none;">
+                <div class="container">
+                    <!--Botones de las secciones del catalogo-->
+                    <div class="tabs">
+                        <button class="tab-button active" onclick="showTab('search')">Consulta el Catálogo</button>
+                        <button class="tab-button" onclick="showTab('results')">Articulos Encontrados</button>
+                        <button class="tab-button" onclick="showTab('request')">Registrar Solicitud</button>
+                    </div>
+
+                    <!--FILTROS-->
+                    <div id="search" class="tab-content active">
+                        <h2 class="section-title">Búsqueda de articulos</h2>
+                        <!--Filtrar por tipo de documento-->
+                        <div class="form-group">
+                            <label for="doc-type">Tipo de Documento</label>
+                            <select id="doc-type">
+                                <option value="">Seleccione el Formato</option>
+                                <option value="Libro">Libro</option>
+                                <option value="DVD">DVD</option>
+                                <option value="Blu-Ray">Blu-Ray</option>
+                                <option value="CD">CD</option>
+                                <option value="Vinilo">Vinilo</option>
+                            </select>
+                        </div>
+
+                        <!--Filtrar por categoria-->
+                        <div class="form-group">
+                            <label for="category">Categoría</label>
+                            <select id="category">
+                                <option value="">Seleccione</option>
+                                <option value="Ficción">Ficción</option>
+                                <option value="Ciencia">Ciencia</option>
+                                <option value="Película">Pelicula</option>
+                                <option value="Música">Musica</option>
+                                <option value="Acción">Acción</option>
+                                <option value="Infantiles">Infantiles</option>
+                                <option value="Ciencia Ficción">Ciencia Ficción</option>
+                                <option value="Comic">Comic</option>
+                            </select>
+                        </div>
+
+                        <!--Filtro que te autocompleta EL TITULO-->
+                        <div class="form-group autocomplete-container">
+                            <label for="title">Título</label>
+                            <input type="text" id="title" placeholder="Ej: Cien años de soledad" oninput="showSuggestions('title', this.value)" onfocus="showSuggestions('title', this.value)">
+                            <div id="title-suggestions" class="suggestions-dropdown"></div>  
+                        </div>
+
+                        <!--Filtro que te autocompleta EL AUTOR-->
+                        <div class="form-group autocomplete-container">
+                            <label for="author">Autor</label>
+                            <input type="text" id="author" placeholder="Ej: Gabriel García Márquez" oninput="showSuggestions('author', this.value)" onfocus="showSuggestions('author', this.value)">    
+                            <div id="author-suggestions" class="suggestions-dropdown"></div>
+                        </div>
+
+                        <!--botones que te reinicia o aplican los filtros-->
+                        <div class="form-actions">
+                            <button class="btn btn-secondary" onclick="resetFilters()">Reiniciar Filtros</button>              
+                            <button class="btn btn-primary" onclick="showResults(); showTab('results');">Aplicar Filtro</button>          
+                        </div>
+                    </div>
+
+                    <!--RESULTADOS DE BUSQUEDA-->
+                    <div id="results" class="tab-content">
+                        <h2 class="section-title">Resultados de Búsqueda</h2>
+
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Autor</th>
+                                        <th>Edición</th>
+                                        <th>Año</th>
+                                        <th>Tipo</th>
+                                        <th>Categoría</th>
+                                        <th>#</th>
+                                        <th>Agregar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="results-table-body"> </tbody>
+                            </table>
+                        </div>
+
+                        <!--Botones de volver o agregar-->
+                        <div class="form-actions">
+                            <button class="btn btn-secondary" onclick="showTab('search')">Volver</button>
+                            <button class="btn btn-primary" onclick="addSelectedToRequest()">Agregar a Solicitud</button>
+                        </div>
+                    </div>
+
+                    <!--REGISTRAR LA SOLICITUD-->
+                    <div id="request" class="tab-content">
+                        <h2 class="section-title">Solicitud de Documentos</h2>
+                        <div class="table-container"> 
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Autor</th>
+                                        <th>Edición</th>
+                                        <th>Año</th>
+                                        <th>Tipo</th>
+                                        <th>Categoría</th>
+                                        <th>#</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="request-table-body"> </tbody>
+                            </table>
+                        </div>
+
+                        <!--Botones de borrar o enviar solicitud-->
+                        <div class="form-actions">
+                            <button class="btn btn-secondary" onclick="resetRequestAndGoToSearch()">Borrar Solicitud</button>
+                            <button class="btn btn-primary" onclick="sendRequest()">Enviar Solicitud</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--HISTORIAL DE SOLICITUDES-->
+            <div id="history-view" class="content-view" style="display: none;">
+                <h2 class="section-title">Historial de Solicitudes</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!--RESERVAR DOCUMENTO-->
+            <div id="reservar-view" class="content-view" style="display: none;">
+                <div class="container">
+                    <h2 class="section-title">Reserva tu Documento </h2>
+                    <div class="form-group">
+                        <h2 class="text">Lista de articulos para reserva</h2>
+                        <label for="document-to-reserve">Seleccione el documento a reservar:</label>
+                        <select id="document-to-reserve"></select>
+                    </div>
+                    <div class="form-group">
+                        <h2 class="text">Elija la fecha en la que quiere reservar</h2>
+                        <label for="reservation-date">Fecha de reserva:</label>
+                        <input type="date" id="reservation-date">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-primary" onclick="reserveDocument()">Reservar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="atrasos-view" class="content-view" style="display: none;"></div>
+
+        </section>        
     </main>
 
-    <!--footer-->
+    <!--FOOTER-->
     <footer>
-        <p>creada por</p>
-        <p> &copy; derechos reservados</p>
+        <p> Creada por</p>
+        <p> &copy; Derechos Reservados</p>
         <p> 2025</p>
     </footer>
 
+    <script src="usuarios.js"></script>
 </body>
 </html>
