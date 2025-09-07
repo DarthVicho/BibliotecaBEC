@@ -70,6 +70,13 @@ section{
     align-items: center;
 }
 
+.text{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+
+} 
+
 .cuadro{
     display: flex;
     flex-direction: column;
@@ -138,4 +145,4 @@ footer{
     color: white;
     text-align: center;
     padding: 15px 0;
-}
+    }

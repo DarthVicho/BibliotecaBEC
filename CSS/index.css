@@ -6,6 +6,13 @@
     box-sizing: border-box;
 }
 
+/*body*/
+body{
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
 /*Header*/
 header{
     background-color: #802016;
@@ -18,13 +25,14 @@ header{
 }
 
 .logo {
+    gap: 10px;
     display: flex;
     align-items: center;
 }
 
 .logo-img {
-    width: 55px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     overflow: hidden;
     object-fit: cover;
@@ -43,14 +51,14 @@ header{
 /*Section*/
 section{
     /*fondo con imagen*/
-    background-image: url("../Imagenes/Gemini_Generated_Image_9ryr909ryr909ryr.png");
+    background-image: url("../Imagenes/fondo_interior.png");
     /*encuadra la imagen*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;    
 }
 
 /*Titulo Principal*/
@@ -99,6 +107,19 @@ section{
 
 .formulario button:hover {
     background: #a6281c;
+}
+
+/*Mostrar Contraseña*/
+.container{
+    display: flex;
+    align-items: center;
+    width: 320px;
+}
+
+.bx{
+    font-size: 30px;
+    transform: translateX(-40px);
+    cursor: pointer;
 }
 
 /*Parte de abajo del formulario*/

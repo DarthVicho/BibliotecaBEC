@@ -20,9 +20,8 @@ header{
     padding: 15px 20px;
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     position: relative;
-    z-index: 1000;
 }
 
 .logo {
@@ -40,17 +39,13 @@ header{
     border: 3px solid #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-text {
     font-size: 18px;
     font-weight: bold;
-}
-
-/*Main*/
-main{
-    display: flex;
-    min-height: calc(100vh);
 }
 
 /*seccion*/
@@ -70,66 +65,63 @@ section{
     align-items: center;
 }
 
-.cuadro{
-    display: flex;
-    flex-direction: column;
-    background-color:#8021168f;
-    border: 2px solid #802016;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    padding: 30px;
-}
-
-.cuadro a{
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 15px 25px;
-    border-radius: 8px;
-    margin: 10px 0;
+.title{
     text-align: center;
-    transition: backgriund-color 0.3s ease, transform 0.2s ease;
+    font-size: bold;
+    color: white;
 }
 
-.cuadro a:hover{
-    border-radius: auto;
-    background-color: #a3261a;
-    transform: translateY(-3px);
-}
-
-/*lateral izquierdo*/
-aside{
+.formulario{
     background-color: white;
-    flex-shrink: 0;
-    width: 13%;
+    color: black;
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 350px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease ;
+}
+
+.formulario:hover{
+    transform: translateY(-4px);
+}
+
+.formulario input {
+    width: 100%;
     padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
-aside a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.formulario button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #802016;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-aside a:hover {
-    background-color: #c4b4b4;
+.formulario button:hover {
+    background: #a6281c;
 }
 
-.login-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    object-fit: cover;
-    border: 3px solid #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+/*Mostrar Contraseña*/
+.container{
     display: flex;
+    align-items: center;
+    width: 320px;
+}
+
+.bx{
+    font-size: 30px;
+    transform: translateX(-40px);
+    cursor: pointer;
 }
 
 /*Footer*/
